@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Task } from './components/Task'
+import { Header } from './components/Header'
 
 import uuid from 'react-uuid';
 
-import todoLogo from './assets/logo.svg'
 import styles from './App.module.css'
 import { ITodo } from './shared/interface/todo';
 
@@ -56,9 +56,7 @@ function App() {
 
   return (
     <div className={styles.todo}>
-      <header>
-        <img src={todoLogo} alt="Logo todo" />
-      </header>
+      <Header/>
 
       <form onSubmit={handleCreateTodo}>
         <div className={styles.todoWrapper}>
