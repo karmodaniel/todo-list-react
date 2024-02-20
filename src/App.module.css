@@ -44,6 +44,11 @@
   background: var(--gray-500);
   border: 1px solid var(--gray-700);
   border-radius: 8px;
+  outline: none;
+}
+
+.inputWrapper input:focus {
+  border: 1px solid var(--purple-dark);
 }
 
 .inputWrapper button {
@@ -56,6 +61,15 @@
   line-height: 140%;
   font-size: 0.875rem;
   border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inputWrapper button:hover {
+  background: var(--blue);
   cursor: pointer;
 }
 

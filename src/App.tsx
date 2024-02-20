@@ -2,6 +2,8 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { Task } from './components/Task'
 import { Header } from './components/Header'
 
+import { PlusCircle } from '@phosphor-icons/react'
+
 import uuid from 'react-uuid';
 
 import styles from './App.module.css'
@@ -62,7 +64,10 @@ function App() {
         <div className={styles.todoWrapper}>
           <div className={styles.inputWrapper}>
             <input onChange={handleInputChange} value={todoMessage} type="text" placeholder='Adicione uma nova tarefa' name="todoMessage" id="todoMessage"/>
-            <button type='submit'>Criar</button>
+            <button type='submit'>
+            Criar
+            <PlusCircle size={16} weight="bold"/>
+            </button>
           </div>
           
           <div className={styles.todoStatus}>
