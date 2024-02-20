@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Task } from './components/Task'
 import { Header } from './components/Header'
+import { Empty } from './shared/components/Empty';
 
 import { PlusCircle } from '@phosphor-icons/react'
 
@@ -75,7 +76,8 @@ function App() {
             <span>Tarefas concluídas {getNumberOfTasksCompleteds()} de {todo.length}</span>
           </div>
           
-            <ul className={styles.container}>
+            {todo.length 
+            ? <ul className={styles.container}>
               {
                 todo.map((todo: ITodo) => {
                   return (
@@ -85,7 +87,12 @@ function App() {
                   ) 
                 })
               }
-            </ul>
+              </ul>
+            : 
+            <div className={styles.empty}>
+              <Empty/>
+            </div>
+            }
         </div>
       </form>
     

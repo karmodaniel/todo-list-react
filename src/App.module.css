@@ -82,3 +82,7 @@
 .todoWrapper ul {
   width: 100%;
 }
+
+.empty {
+  margin-top: 5.5rem;
+}
