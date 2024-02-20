@@ -1,4 +1,4 @@
-import { Trash } from '@phosphor-icons/react'
+import { Trash, Check } from '@phosphor-icons/react'
 
 import { ITodo } from '../shared/interface/todo';
 import styles from './Task.module.css'
@@ -11,6 +11,10 @@ interface TaskProps {
 
 export function Task({ todo, onHandleCompleteTask, onHandleDeleteTask }: Readonly<TaskProps>) {
 
+  const checkboxToggleStyle = todo.completed ? styles.checkboxChecked : styles.checkboxUnchecked;
+  const paragraphToggleStyle = !todo.completed ? styles.contentEnabled : styles.contentDisabled;
+  const checkBoxId = `checkbox${todo.id}`;
+
   function handleCompleteTask(): void {
     onHandleCompleteTask(todo.id);
   }
@@ -21,14 +25,19 @@ export function Task({ todo, onHandleCompleteTask, onHandleDeleteTask }: Readonl
 
   return (
     <div className={styles.task}>
-      <input onChange={handleCompleteTask} type="checkbox" />
+      <input onChange={handleCompleteTask} checked={todo.completed} type="checkbox" id={checkBoxId} />
+      <label htmlFor={checkBoxId} className={`${styles.checkbox} ${checkboxToggleStyle}`}>
+        { todo.completed && <Check size={12} />}
+      </label>
 
-      <p className={!todo.completed ? styles.contentEnabled : styles.contentDisabled}>
-        {todo.message}
-      </p>
-
+      <div className={styles.paragraphWrapper}>
+        <p className={paragraphToggleStyle}>
+          {todo.message}
+        </p>
+      </div>
+      
       <button onClick={handleDeleteTask} className={styles.delete}>
-        <Trash size={20} />
+        <Trash size={16} />
       </button>
     </div>
   );
