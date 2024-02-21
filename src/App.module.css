@@ -73,14 +73,17 @@
   cursor: pointer;
 }
 
-.container {
+.tasksContainer {
+  box-sizing: initial;
+  width: 100%;
+  max-height: 35.5rem;
+  overflow-y: auto;
+}
+
+.tasksContainer .tasksItem {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-.todoWrapper ul {
-  width: 100%;
 }
 
 .empty {

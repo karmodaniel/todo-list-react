@@ -75,17 +75,20 @@ function App() {
           </div>
           
             {todo.length 
-            ? <ul className={styles.container}>
-              {
-                todo.map((todo: ITodo) => {
-                  return (
-                    <li key={todo.id}>
-                      <Task todo={todo} onHandleCompleteTask={handleCompleteTask} onHandleDeleteTask={handleDeleteTask}/>
-                    </li>
-                  ) 
-                })
-              }
-              </ul>
+            ? 
+            <div className={styles.tasksContainer}>
+              <ul className={styles.tasksItem}>
+                {
+                  todo.map((todo: ITodo) => {
+                    return (
+                      <li key={todo.id}>
+                        <Task todo={todo} onHandleCompleteTask={handleCompleteTask} onHandleDeleteTask={handleDeleteTask}/>
+                      </li>
+                    ) 
+                  })
+                }
+                </ul>
+              </div>
             : 
             <div className={styles.empty}>
               <Empty/>
