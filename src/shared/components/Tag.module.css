@@ -1,0 +1,28 @@
+.tagContainer {
+  display: flex;
+  align-items: center;
+}
+
+.tagContainer span {
+  color: var(--gray-200);
+  font-size: 0.875rem;
+}
+
+.tagContainer > span {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.tag {
+  background: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.tag .diviser {
+  margin-left: 0.125rem;
+  margin-right: 0.125rem;
+}

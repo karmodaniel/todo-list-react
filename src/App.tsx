@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { Task } from './components/Task'
 import { Header } from './components/Header'
 import { Empty } from './shared/components/Empty';
+import { Tag } from './shared/components/Tag';
 
 import { PlusCircle } from '@phosphor-icons/react'
 
@@ -15,6 +16,7 @@ import './global.css';
 function App() {
   const [todo, setTodo] = useState<ITodo[]>([]);
   const [todoMessage, setTodoMessage] = useState<string>('');
+  const numberOfTasksCompleteds = todo.filter((todo: ITodo) => todo.completed).length;
 
   function handleCreateTodo(event: FormEvent): void {
     event.preventDefault();
@@ -33,10 +35,6 @@ function App() {
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     setTodoMessage(event.target.value); 
-  }
-
-  function getNumberOfTasksCompleteds(): number {
-    return todo.filter((todo: ITodo) => todo.completed).length
   }
 
   function handleCompleteTask(id: string): void {
@@ -72,8 +70,8 @@ function App() {
           </div>
           
           <div className={styles.todoStatus}>
-            <span>Tarefas criadas {todo.length}</span>
-            <span>Tarefas concluídas {getNumberOfTasksCompleteds()} de {todo.length}</span>
+            <Tag label='Tarefas criadas' labelColor='#4EA8DE' startRange={todo.length}/>
+            <Tag label='Tarefas concluídas' labelColor='#8284FA' startRange={numberOfTasksCompleteds} endRange={todo.length}/>
           </div>
           
             {todo.length 
