@@ -34,8 +34,9 @@
 }
 
 .inputWrapper input {
-  width: 39.875rem;
+  width: 100%;
   max-width: 39.875rem;
+  min-width: 25rem;
   height: 54px;
   color: var(--gray-300);
   line-height: 140%;
@@ -88,4 +89,16 @@
 
 .empty {
   margin-top: 5.5rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .todoWrapper {
+    width: 100%;
+    max-width: 46rem;
+    box-sizing: border-box;
+  }
 }
